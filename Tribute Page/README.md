@@ -11,6 +11,7 @@ This is a solution to the [Tribute Page challenge on freeCodeCamp](https://www.f
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -44,10 +45,13 @@ You can use HTML, JavaScript, and CSS to complete this project. Plain CSS is rec
 
 - User Story #9: The img element should be centered within its parent element.
 
+### Screenshot
+
+![Screenshot_2021-04-22 A tribute to Kobe Bryant](https://user-images.githubusercontent.com/78707309/115692275-bd195100-a356-11eb-9ccf-178e28b10834.png)
+
 ### Links
 
-- [Solution URL]()
-- [Live Site URL]()
+- [Live Site URL](https://tributepage-by-danielhennig.netlify.app/)
 
 ## My process
 
