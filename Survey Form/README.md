@@ -1,4 +1,4 @@
-# freeCodeCamp - Tribute Page solution
+# freeCodeCamp - Survey Form solution
 
 This is a solution to the [Survey Form challenge on freeCodeCamp](https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-survey-form). FreeCodeCamp courses help you improve your coding skills. By completing the five web programming projects below you can earn a Responsive Web Design certification.
 - Tribute Page
