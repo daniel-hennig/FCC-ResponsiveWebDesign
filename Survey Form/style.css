@@ -1,0 +1,94 @@
+body {
+    background-image: linear-gradient( 135deg, #3B2667 10%, #BC78EC 100%);
+
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    height: 100vh;
+    height: 100%;
+    margin: 4rem auto 0 auto;
+}
+
+form {
+    background-color: #351438;
+    border-radius: 5px;
+    height: 100%;
+    margin: 3.125rem 12% 0 12%;
+    padding: 2.5rem;
+    text-align: left;
+}
+
+.form_section {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 2.5rem;
+}
+
+form p {
+    margin-bottom: .5rem;
+}
+
+input {
+    margin-top: .3rem;
+}
+
+input[type=text], input[type=email], input[type=number] {
+    font-family: inherit;
+    height: 1.75rem;
+    padding: .25rem;
+}
+
+select {
+    font-family: inherit;
+    height: 2.3rem;
+}
+
+.radio, .checkbox {
+    margin-right: .5rem;
+    min-height: 1.2rem;
+    min-width: 1.2rem;
+    float: left;
+    margin-top: 3px;
+}
+
+label {
+    margin-bottom: .6rem;
+}
+
+textarea {
+    font-family: inherit;
+    min-height: 120px;
+    padding: .4rem;
+}
+
+button {
+    background-color: #37af65;
+    border-radius: 2px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    height: 2.5rem;
+}
+
+button:hover {
+    opacity: .75;
+}
+
+@media screen and (max-width: 460px) {
+    form {
+        margin: 3.125rem 0 0 0;
+    }
+}

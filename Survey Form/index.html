@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Customer Satisfaction Survey Form</title>
+</head>
+<body>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+    <main class="container">
+        <h1 id="title">Customer Satisfaction Survey</h1>
+        <p id="description">Thank you for taking the time to help us improve our services</p>
+
+        <form action="" id="survey-form">
+
+            <div class="form_section">
+                <label id="name-label" for="name">Name</label>
+                <input type="text" name="name" id="name" required placeholder="Enter your name">
+            </div>
+
+            <div class="form_section">
+                <label id="email-label" for="email">E-Mail</label>
+                <input type="email" name="email" id="email" required placeholder="Enter your E-Mail">
+            </div>
+
+            <div class="form_section">
+                <label id="number-label" for="number">Age (optional)</label>
+                <input type="number" name="age" id="number" min="14" max="100" placeholder="Your age">                
+            </div>
+
+            <div class="form_section">
+                <p>How easy is it to navigate our website?</p>
+                <select name="difficulty" id="dropdown">
+                    <option disabled selected value>Select difficulty</option>
+                    <option value="extrm-easy">Extremely easy</option>
+                    <option value="very-easy">Very easy</option>
+                    <option value="little-easy">Kind of easy</option>
+                    <option value="notthat-easy">Not that easy</option>
+                    <option value="notatall-easy">Not easy at all</option>
+                </select>                
+            </div>
+            
+            <div class="form_section">
+                <p>How well does our product meet your needs?</p>
+                <label>
+                    <input type="radio" name="user-satisfaction" class="radio" value="very-well" checked>Very well
+                </label>
+                <label>
+                    <input type="radio" name="user-satisfaction" class="radio" value="well">Well
+                </label>
+                <label>
+                    <input type="radio" name="user-satisfaction" class="radio" value="fine">Fine
+                </label>
+                <label>
+                    <input type="radio" name="user-satisfaction" class="radio" value="badly">Badly
+                </label>
+            </div>
+
+            <div class="form_section">
+                <p>Which 3 software features are the most valuable to you?</p>
+                <label for="cb1">
+                    <input type="checkbox" name="features" class="checkbox" id="cb1" value="correctness">Correctness
+                </label>
+                <label for="cb2">
+                    <input type="checkbox" name="features" class="checkbox" id="cb2" value="reliability">Reliability
+                </label>
+                <label for="cb3">
+                    <input type="checkbox" name="features" class="checkbox" id="cb3" value="robustness">Robustness
+                </label>
+                <label for="cb4">
+                    <input type="checkbox" name="features" class="checkbox" id="cb4" value="usability">Usability
+                </label>
+                <label for="cb5">
+                    <input type="checkbox" name="features" class="checkbox" id="cb5" value="performance">Performance
+                </label>
+                <label for="cb6">
+                    <input type="checkbox" name="features" class="checkbox" id="cb6" value="maintainability">Maintainability
+                </label>
+                <label for="cb7">
+                    <input type="checkbox" name="features" class="checkbox" id="cb7" value="reusability">Reusability
+                </label>
+                <label for="cb8">
+                    <input type="checkbox" name="features" class="checkbox" id="cb8" value="portability">Portability
+                </label>
+                <label for="cb9">
+                    <input type="checkbox" name="features" class="checkbox" id="cb9" value="interoperability">Interoperability
+                </label>                
+            </div>
+
+            <div class="form_section">
+                <p>If you could change just one thing about our product/ service, what would it be?</p>
+                <textarea name="suggestions" id="suggestion" placeholder="Enter your suggestion here..."></textarea>                
+            </div>
+
+            <div class="form_section">
+                <button type="submit" id="submit">Submit</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
