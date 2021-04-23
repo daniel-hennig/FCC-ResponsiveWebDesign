@@ -61,7 +61,7 @@ User Story #16: Inside the form element, I am presented with a button with id="s
 
 ### Screenshot
 
-
+![Screenshot_2021-04-23 Customer Satisfaction Survey Form](https://user-images.githubusercontent.com/78707309/115852979-91629d80-a420-11eb-8236-735555eef878.png)
 
 ### Links
 
