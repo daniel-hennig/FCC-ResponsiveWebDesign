@@ -1,0 +1,127 @@
+<!-- image source: https://www.pngkey.com/pngs/bonsai-tree/ -->
+<!-- image source: http://www.pngpix.com/?q=bonsai+tree -->
+<!-- video source: https://www.pexels.com/video/planting-bonsai-5910444/  (Video by Anna Shvets from Pexels) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Product Landing Page</title>
+</head>
+<body>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+    <header id="header">
+        <nav id="nav-bar" class="nav_bar">
+            <ul class="logo">
+                <li><a href="index.html"><img src="images/LOGO_pngkey.com-bonsai-png-7960797.png" alt="Logo image" id="header-img"></a></li>
+                <li><a class="logo_name" href="index.html">BonTree</a></li>
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+                <a id="menu-hamburger" href="#" class="menu__hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </a>
+            </div>
+
+            <div class="nav_menu invisible" id="nav-menu">
+                <ul>
+                    <li><a href="#hero" class="nav-link" id="link-home">Home</a></li>
+                    <li><a href="#our-products" class="nav-link" id="link-trees">Our trees</a></li>
+                    <li><a href="#form-section" class="nav-link" id="link-sub">Subscribe</a></li>
+                    <li><a href="#video-section" class="nav-link" id="link-video">Check a video</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="hero" id="hero">
+            <h1 class="primary-title">Beautiful bonsai trees</h1>
+            <p class="primary-description">Bonsai trees are made over years of time. Each of them is a masterpiece on its own.</p>
+            <a href="#our-products" class="btn">See what we have</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="our-products" id="our-products">
+            <div class="container spacing">
+                <h2 class="section-title">Our trees</h2>
+                <div class="products-container">
+                    <article class="product spacing tree-one">
+                        <img src="images/pngkey.com-bonsai-tree-png-1041553.png" alt="Kaito tree" class="product__image image__kaito">
+                        <h3 class="product__title">Kaito</h3>
+                        <p class="product__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, a. Voluptas nobis aspernatur itaque voluptatum!</p>
+                        <h4 class="product__price"><span>$</span>400</h4>
+                        <a href="#" class="btn">Buy now</a>
+                    </article>
+    
+                    <article class="product spacing tree-two">
+                        <img src="images/pngkey.com-house-plant-png-926948.png" alt="Yui tree" class="product__image image__yui">
+                        <h3 class="product__title">Yui</h3>
+                        <p class="product__description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga doloremque repudiandae ipsum maxime deleniti ab?</p>
+                        <h4 class="product__price"><span>$</span>250</h4>
+                        <a href="#" class="btn">Buy now</a>
+                    </article>
+    
+                    <article class="product spacing tree-three">
+                        <img src="images/pngkey.com-old-tree-png-8588695.png" alt="Riku tree" class="product__image image__riku">
+                        <h3 class="product__title">Riku</h3>
+                        <p class="product__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum blanditiis, a magnam aperiam adipisci maiores!</p>
+                        <h4 class="product__price"><span>$</span>270</h4>
+                        <a href="#" class="btn">Buy now</a>
+                    </article>
+    
+                    <article class="product spacing tree-four">
+                        <img src="images/pngkey.com-sakura-flower-png-4877380.png" alt="Hina tree" class="product__image image__hina">
+                        <h3 class="product__title">Hina</h3>
+                        <p class="product__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, expedita reiciendis rem vero perferendis aspernatur.</p>
+                        <h4 class="product__price"><span>$</span>680</h4>
+                        <a href="#" class="btn">Buy now</a>
+                    </article>
+    
+                    <article class="product spacing tree-five">
+                        <img src="images/pngkey.com-trees-png-4718786.png" alt="Ryusei tree" class="product__image image__ryusei">
+                        <h3 class="product__title">Ryusei</h3>
+                        <p class="product__description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non, suscipit. Facere ex minima laborum molestias.</p>
+                        <h4 class="product__price"><span>$</span>800</h4>
+                        <a href="#" class="btn">Buy now</a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    
+        <section class="form-section spacing" id="form-section">
+            <p>Subscribe to our newsletter and get all the news and deals about our Bonsai Trees!</p>
+            <form action="https://www.freecodecamp.com/email-submit" id="form">
+                <input type="email" name="email" class="email" id="email" placeholder="Enter your E-Mail">
+                <input type="submit" value="Subscribe" class="submit" id="submit">
+            </form>
+        </section>
+
+        <section class="video-section" id="video-section">
+            <h2 class="video-title">How to customize the tree</h2>
+            <video src="images/pexels-anna-shvets-5910444.mp4" id="video" controls></video>
+        </section>
+
+    </main>
+
+    <footer>
+        <ul>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <span>Copyright 2021, BonTree</span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

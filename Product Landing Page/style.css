@@ -1,0 +1,524 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.6;
+}
+
+.invisible {
+    visibility: hidden;
+    top: 0;
+    position: absolute;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.logo {
+    display: flex;
+}
+
+.logo li {
+    list-style-type: none;
+    align-self: center;
+    font-weight: 700;
+    padding-left: .5rem;
+}
+
+.logo_name {
+    color: black;
+    text-decoration: none;
+}
+
+nav {
+    background-color: #fff;
+    -webkit-box-shadow: 0px -2px 5px 0px #000000;
+    box-shadow: 0px -2px 5px 0px #000000;
+    height: 5rem;
+    width: 100%;
+    position: fixed;
+}
+
+.nav_bar {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_overlay {
+    background-color: #222; /* fallback background */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding-top: 2rem;
+    position: fixed;
+    min-height: 100vh;
+    width: 100%;
+    z-index: 2;
+  }
+  @supports (background-blend-mode: multiply) { /* if browser supports bg-blennd-mode */
+    .nav_overlay {
+        background-image:
+            url(images/pngkey.com-palm-tree-silhouette-png-311981.png),
+            radial-gradient(#444, #111);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+}
+
+.nav_mobile {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    gap: 4em;
+    position: absolute;
+    top: 20vh;
+    left: 0;
+    right: 0;
+}
+
+.nav_menu ul {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav_menu li {
+    list-style-type: none;
+}
+
+.nav_menu a {
+    color: rgba(255, 255, 255, 0.801);
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.nav_menu a:hover {
+    color: #fff;
+    transition: .9s;
+}
+
+.nav_menu a:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    -webkit-transform: translateX(-50%) scaleX(0);
+    transform: translateX(-50%) scaleX(0);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.801);
+    -webkit-transition: transform 250ms;
+    transition: transform 250ms;
+}
+
+.nav_menu a:hover:after {
+    -webkit-transform: translateX(-50%) scaleX(1);
+    transform: translateX(-50%) scaleX(1);
+}
+
+.menu__hamburger {
+    border: 2px solid black;
+    border-radius: 5px;
+    float: right;
+    margin-right: 1.5rem;
+    padding: 8px;
+    position: relative;
+    z-index: 99999;
+    transition: all 300ms ease-in-out;
+}
+
+.menu__hamburger span {
+    background-color: black;
+    display: block;
+    height: 2px;
+    width: 16px;
+    transition: all 300ms ease-in-out;
+    transform-origin: 1px 1px;
+}
+
+.menu__hamburger span:not(:last-child) {
+    margin-bottom: 3px;
+}
+
+.menu__hamburger.open > span:first-child { /* animate hamburger */
+    -webkit-transform: rotate(45deg) translate(2px, -1px);
+            transform: rotate(45deg) translate(2px, -1px);
+}
+  
+.menu__hamburger.open > span:nth-child(2) { /* animate hamburger */
+    opacity: 0;
+}
+
+.menu__hamburger.open > span:last-child { /* animate hamburger */
+    -webkit-transform: rotate(-45deg) translate(1px, 2px);
+            transform: rotate(-45deg) translate(1px, 2px);
+}
+
+.hero {
+    background-color: #222; /* fallback background */
+    color: #fff;
+    padding: 10em 0;
+    text-align: center;
+    --clr-accent: #faa700;
+}
+@supports (background-blend-mode: multiply) { /* if browser supports bg-blennd-mode */
+    .hero {
+        background-image:
+            url(images/pngkey.com-palm-tree-silhouette-png-311981.png),
+            radial-gradient(#444, #111);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+}
+
+.container {
+    margin: 0 auto;
+    width: 85%;
+    max-width: 65em;
+}
+
+section {
+    padding: 7em 0;
+}
+
+.spacing > * + * { /* change every child who has a sibling */
+    margin-top: var(--spacer, 2rem);
+}
+
+.btn {
+    background-color: var(--clr-accent, blue);
+    border-radius: .25em;
+    color: var(--clr-text, #fff);
+    display: inline-block;
+    font-size: 1.125rem;
+    font-weight: 700;
+    padding: .5em 1.25em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+        transform 250ms ease-in-out,
+        opacity 250ms linear;
+}
+
+.btn:hover, .btn:focus {
+    opacity: .9;
+    transform: scale(1.1);
+}
+
+.primary-title {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: .5rem;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-transform: uppercase;
+}
+
+.primary-description {
+    margin-bottom: 4.5rem;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.section-title, .video-title {
+    color: #17353d;
+    font-size: 3rem;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.product {
+    border-radius: 2em;
+    margin-bottom: 5em;
+    padding: 3em;
+    text-align: center;
+}
+
+.product__title {
+    color: #fff;
+    font-size: 2.5rem;
+    line-height: 1;
+    text-shadow: 0 0 .2em rgba(#000, .2);
+    text-transform: uppercase;
+}
+
+.product__image {
+    margin: -5em auto 0 auto;
+}
+
+.product__price {
+    color: #1a1a1a;
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgb(49, 49, 49);
+}
+
+.product__price span {
+    color: #ffbf00;
+}
+
+.tree-one {
+    background: radial-gradient(#10ff00, #de13ce);
+    --clr-accent: #80007c;
+}
+.tree-two {
+    background: radial-gradient(rgb(213, 234, 31), #299c1a);
+    --clr-accent: green;
+}
+.tree-three {
+    background: radial-gradient(rgb(255, 165, 0), #c75d00);
+    --clr-accent: #800000;
+    ;
+}
+.tree-four {
+    background: radial-gradient(#ff00f7, #00ffe7);
+    --clr-accent: #001080;
+}
+.tree-five {
+    background: radial-gradient(#c5c5c5, #000000);
+    --clr-accent: #000000;
+}
+
+.form-section {
+    background-color: #eee;
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+form input, form button {
+    font-family: inherit;
+    height: 2rem;
+    display: block;
+    width: 100%;
+}
+
+.email {
+    padding: .5rem;
+}
+
+.submit {
+    background-color: #faa700;
+}
+
+.submit:hover, .submit:focus {
+    background-color: #ffb114;
+}
+
+.video-section {
+    background-color: #fff;
+}
+
+video {
+    max-width: 100%;
+}
+
+footer {
+    background-color: #eee;
+    padding: 1.25em;
+}
+
+footer ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+}
+
+footer li {
+    padding-left: .625em;
+}
+
+footer a {
+    color: #000;
+    text-decoration: none;
+}
+
+footer span {
+    color: #444;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: .3125em;
+}
+
+/* Animation */
+@keyframes fade-in {
+    from {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    1% {
+        visibility: visible;
+    }
+
+    to {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+.fade-in {
+    animation: fade-in 200ms ease-in-out forwards;
+}
+
+@keyframes fade-out {
+    from {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    99% {
+        visibility: hidden;
+    }
+
+    to {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+.fade-out {
+    animation: fade-out 200ms ease-in-out forwards;
+}
+
+/* Media Queries */
+@media (max-height: 29.6875em) {
+    .nav_mobile {
+        gap: 2em;
+    }
+}
+
+@media (min-width: 45em) {
+    .nav_mobile {
+        font-size: 1.4rem;
+    }
+
+    .primary-title {
+        font-size: 4.5rem;
+    }
+
+    .section-title, .video-title {
+        font-size: 4rem;
+    }
+
+    .product__title {
+        margin: 0;
+        font-size: 4rem;
+    }
+    
+    .tree-one, .tree-three, .tree-five {
+        text-align: left;
+        margin-bottom: 9em;
+    }
+    
+    .tree-two, .tree-four {
+        text-align: right;
+        margin-bottom: 9em;
+    }
+
+    .image__kaito {
+        float: right;
+        width: 65%;
+        shape-outside: url(/images/pngkey.com-bonsai-tree-png-1041553.png);
+        shape-margin: 1em;
+    }
+
+    .image__yui {
+        float: left;
+        width: 65%;
+        shape-outside: url(/images/pngkey.com-house-plant-png-926948.png);
+        shape-margin: 1em;
+    }
+
+    .image__riku {
+        float: right;
+        width: 70%;
+        shape-outside: url(/images/pngkey.com-old-tree-png-8588695.png);
+        shape-margin: 1em;
+    }
+
+    .image__hina {
+        float: left;
+        width: 60%;
+        shape-outside: url(/images/pngkey.com-sakura-flower-png-4877380.png);
+        shape-margin: 1em;
+    }
+    
+    .image__ryusei {
+        float: right;
+        width: 60%;
+        shape-outside: url(/images/pngkey.com-trees-png-4718786.png);
+        shape-margin: 1em;
+    }
+}
+
+@media (min-width: 50.75em) {
+    .image__hina, .image__ryusei {
+        width: 55%;
+    }
+
+    .menu__hamburger {
+        display: none;
+    }
+
+    .nav_menu {
+        visibility: visible;
+        top: unset;
+        right: 2em;
+    }
+
+    .nav_menu li {
+        margin-left: 2em;
+    }
+
+    .nav_menu a {
+        color: rgb(24, 24, 24);
+    }
+
+    .nav_menu a:hover {
+        color: black;
+    }
+
+    .nav_menu a:after {
+        background-color: black;
+    }
+}
+
+@media (min-width: 62.5em) {
+    .products-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .product {
+        text-align: center;
+        max-width: 46%;
+        margin: 2em .5em;
+    }
+
+    .product__image {
+        float: initial;
+        max-width: 100%;
+    }
+}
