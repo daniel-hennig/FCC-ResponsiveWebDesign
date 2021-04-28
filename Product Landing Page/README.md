@@ -11,7 +11,7 @@ This is a solution to the [Product Landing Page challenge on freeCodeCamp](https
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshots](#screenshots)
+  - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -59,6 +59,8 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
 
 ### Screenshot
 
+Desktop Version
+![Screenshot_2021-04-28 Product Landing Page](https://user-images.githubusercontent.com/78707309/116334220-bfebca00-a7cc-11eb-8012-97545d529df9.png)
 
 ### Links
 
