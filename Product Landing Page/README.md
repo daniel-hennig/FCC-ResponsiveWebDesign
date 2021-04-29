@@ -60,7 +60,7 @@ User Story #15: My product landing page should utilize CSS flexbox at least once
 ### Screenshot
 
 Desktop Version
-![Screenshot_2021-04-28 Product Landing Page](https://user-images.githubusercontent.com/78707309/116334220-bfebca00-a7cc-11eb-8012-97545d529df9.png)
+![Screenshot_2021-04-29 Product Landing Page](https://user-images.githubusercontent.com/78707309/116578754-a308e100-a909-11eb-9174-6f3fb56852d2.png)
 
 ### Links
 
