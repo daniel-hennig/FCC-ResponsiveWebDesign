@@ -47,6 +47,7 @@ nav {
     height: 5rem;
     width: 100%;
     position: fixed;
+    z-index: 9999;
 }
 
 .nav_bar {
@@ -255,11 +256,15 @@ section {
 }
 
 .product__title {
-    color: #fff;
+    color: #222;
     font-size: 2.5rem;
     line-height: 1;
     text-shadow: 0 0 .2em rgba(#000, .2);
     text-transform: uppercase;
+}
+
+.product__description {
+    color: #222;
 }
 
 .product__image {
@@ -267,7 +272,7 @@ section {
 }
 
 .product__price {
-    color: #1a1a1a;
+    color: #eee;
     font-weight: 700;
     font-size: 2.5rem;
     margin: 0;
@@ -278,26 +283,56 @@ section {
     color: #ffbf00;
 }
 
-.tree-one {
-    background: radial-gradient(#10ff00, #de13ce);
-    --clr-accent: #80007c;
-}
-.tree-two {
-    background: radial-gradient(rgb(213, 234, 31), #299c1a);
-    --clr-accent: green;
-}
-.tree-three {
-    background: radial-gradient(rgb(255, 165, 0), #c75d00);
-    --clr-accent: #800000;
-    ;
-}
-.tree-four {
-    background: radial-gradient(#ff00f7, #00ffe7);
-    --clr-accent: #001080;
-}
+.tree-one,
+.tree-two,
+.tree-three,
+.tree-four,
 .tree-five {
-    background: radial-gradient(#c5c5c5, #000000);
-    --clr-accent: #000000;
+    background: #eee;
+    --clr-accent: green;
+    position: relative;
+    z-index: 1;
+}
+.tree-one::before,
+.tree-two::before,
+.tree-three::before,
+.tree-four::before,
+.tree-five::before {
+    border-radius: 2em;
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: radial-gradient(#5b5b5b, #222);
+    z-index: -1;
+    -webkit-transition: opacity 300ms linear;
+    -moz-transition: opacity 300ms linear;
+    -o-transition: opacity 300ms linear;
+    -ms-transition: opacity 300ms linear;
+    transition: opacity 300ms linear;
+    opacity: 0;
+}
+
+.tree-one:hover::before,
+.tree-two:hover::before,
+.tree-three:hover::before,
+.tree-four:hover::before,
+.tree-five:hover::before,
+
+.tree-one:focus::before,
+.tree-two:focus::before,
+.tree-three:focus::before,
+.tree-four:focus::before,
+.tree-five:focus::before,
+
+.tree-one.open::before,
+.tree-two.open::before,
+.tree-three.open::before,
+.tree-four.open::before,
+.tree-five.open::before {
+    opacity: 1;
 }
 
 .form-section {

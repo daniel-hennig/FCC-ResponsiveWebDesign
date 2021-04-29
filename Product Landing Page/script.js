@@ -10,6 +10,13 @@ const linkTrees = document.getElementById('link-trees');
 const linkSub = document.getElementById('link-sub');
 const linkVideo = document.getElementById('link-video');
 const body = document.querySelector('body');
+const open = document.querySelector(".open");
+const treeOne = document.querySelector(".tree-one");
+const treeTwo = document.querySelector(".tree-two");
+const treeThree = document.querySelector(".tree-three");
+const treeFour = document.querySelector(".tree-four");
+const treeFive = document.querySelector(".tree-five");
+
 
 let active = false;
 
@@ -105,3 +112,73 @@ linkVideo.addEventListener('click', (e) => {
         active = false;
     }
 });
+
+treeOne.ontouchstart = function () {
+const allClasses = [treeTwo, treeThree, treeFour, treeFive];
+
+    if(open) {
+    this.classList.remove('open');
+    } else {
+    allClasses.forEach(function(el) {
+        el.classList.remove("open")
+        });
+
+    this.classList.add('open');
+    }
+}
+
+treeTwo.ontouchstart = function () {
+const allClasses = [treeOne, treeThree, treeFour, treeFive];
+
+    if(open) {
+    this.classList.remove('open');
+    } else {
+    allClasses.forEach(function(el) {
+        el.classList.remove("open")
+        });
+
+    this.classList.add('open');
+    }
+}
+
+treeThree.ontouchstart = function () {
+const allClasses = [treeOne, treeTwo, treeFour, treeFive];
+
+    if(open) {
+    this.classList.remove('open');
+    } else {
+    allClasses.forEach(function(el) {
+        el.classList.remove("open")
+        });
+
+    this.classList.add('open');
+    }
+}
+
+treeFour.ontouchstart = function () {
+const allClasses = [treeOne, treeTwo, treeThree, treeFive];
+
+    if(open) {
+    this.classList.remove('open');
+    } else {
+    allClasses.forEach(function(el) {
+        el.classList.remove("open")
+        });
+
+    this.classList.add('open');
+    }
+}
+
+treeFive.ontouchstart = function () {
+const allClasses = [treeOne, treeTwo, treeThree, treeFour];
+
+    if(open) {
+    this.classList.remove('open');
+    } else {
+    allClasses.forEach(function(el) {
+        el.classList.remove("open")
+        });
+
+    this.classList.add('open');
+    }
+}
