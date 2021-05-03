@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>FreeCodeCamp - Technical Documentation Page</title>
+</head>
+<body>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+    <main id="main-doc">
+        <header>
+            <nav id="navbar">
+                <header>Using Promises with JavaScript</header>
+
+                <div class="nav_menu" id="nav-menu">
+                    <ul>
+                        <li><a href="#introduction" class="nav-link" id="link-introduction">Introduction</a></li>
+                        <li><a href="#guarantees" class="nav-link" id="link-guarantees">Guarantees</a></li>
+                        <li><a href="#chaining" class="nav-link" id="link-chaining">Chaining</a></li>
+                        <li><a href="#further_informations" class="nav-link" id="link-further_informations">Further Informations</a></li>
+                        <li><a href="#reference" class="nav-link" id="link-reference">Reference</a></li>
+                    </ul>
+                </div>
+
+                <div class="hamburger" id="hamburger">
+                    <a id="menu-hamburger" href="#" class="menu__hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </a>
+                </div>    
+            </nav>
+        </header>
+
+        <section class="main-section" id="introduction">
+            <header>Introduction</header>
+            <p>A <code>Promise</code> is an object representing the eventual completion or failure of an asynchronous operation. Since most people are consumers of already-created promises, this guide will explain consumption of returned promises before explaining how to create them.</p>
+            <p>Essentially, a promise is a returned object to which you attach callbacks, instead of passing callbacks into a function.</p>
+            <p>Imagine a function, <code>createAudioFileAsync()</code>, which asynchronously generates a sound file given a configuration record and two callback functions, one called if the audio file is successfully created, and the other called if an error occurs.</p>
+            <p>Here's some code that uses <code>createAudioFileAsync()</code>:</p>
+
+            <pre><code><span class="keyword">function</span> <span class="function">successCallback</span><span class="punctuation">(</span><span class="parameter">result</span><span class="punctuation">)</span> <span class="punctuation">{</span><br>  console<span class="function">.log</span><span class="punctuation">(</span><span class="string">"Audio file ready at URL: "</span> <span class="operator">+</span> result<span class="punctuation">)</span><span class="punctuation">;</span><br><span class="punctuation">}</span>
+                <br><span class="keyword">function</span> <span class="function">failureCallback</span><span class="punctuation">(</span><span class="parameter">error</span><span class="punctuation">)</span> <span class="punctuation">{</span><br>  console<span class="function">.error</span><span class="punctuation">(</span><span class="string">"Error generating audio file: "</span> <span class="operator">+</span> error<span class="punctuation">)</span><span class="punctuation">;</span><br><span class="punctuation">}</span>
+                <br><span class="function">createAudioFileAsync</span> <span class="punctuation">(</span>audioSettings<span class="punctuation">,</span> successCallback<span class="punctuation">,</span> failureCallback<span class="punctuation">)</span><span class="punctuation">;</span></code></pre>
+            
+            <p>If <code>createAudioFileAsync()</code> were rewritten to return a promise, you would attach your callbacks to it instead:</p>
+            
+            <pre><code><span class="function">createAudioFileAsync</span><span class="punctuation">(</span>audioSettings<span class="punctuation">)</span><span class="punctuation">.</span><span class="function">then</span><span class="punctuation">(</span>successCallback<span class="punctuation">,</span> failureCallback<span class="punctuation">)</span><span class="punctuation">;</span></code></pre>
+            
+            <p>This convention has several advantages. We will explore each one.</p>
+        </section>
+        <section class="main-section" id="guarantees">
+            <header>Guarantees</header>
+            <p>Unlike old-fashioned passed-in callbacks, a promise comes with some guarantees:</p>
+            <ul>
+                <li>Callbacks added with <code>then()</code> will never be invoked before the completion of the current run of the JavaScript event loop.</li>
+                <li>These callbacks will be invoked even if they were added after the success or failure of the asynchronous operation that the promise represents.</li>
+                <li>Multiple callbacks may be added by calling then() several times. They will be invoked one after another, in the order in which they were inserted.</li>
+            </ul>
+            <p>One of the great things about using promises is <strong>chaining</strong>.</p>
+        </section>
+        <section class="main-section" id="chaining">
+            <header>Chaining</header>
+            <p>A common need is to execute two or more asynchronous operations back to back, where each subsequent operation starts when the previous operation succeeds, with the result from the previous step. We accomplish this by creating a <strong>promise chain</strong>.</p>
+            <p>Here's the magic: the <code>then()</code> function returns a <strong>new promise</strong>, different from the original:</p>
+            
+            <pre><code><span class="keyword">const</span> promise <span class="operator">=</span> <span class="function">doSomething</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">;</span><br><span class="keyword">const</span> promise2 <span class="operator">=</span> promise<span class="punctuation">.</span><span class="function">then</span><span class="punctuation">(</span>successCallback<span class="punctuation">,</span> failureCallback<span class="punctuation">)</span><span class="punctuation">;</span></code></pre>
+            
+            <p>or</p>
+            
+            <pre><code><span class="keyword">const</span> promise2 <span class="operator">=</span> <span class="function">doSomething</span><span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">.</span><span class="function">then</span><span class="punctuation">(</span> successCallback<span class="punctuation">,</span> failureCallback<span class="punctuation">)</span><span class="punctuation">;</span></code></pre>
+            
+            <p>This second promise (<code>promise2</code>) represents the completion not just of <code>doSomething()</code>, but also of the <code>successCallback</code> or <code>failureCallback</code> you passed in, which can be other asynchronous functions returning a promise. When that's the case, any callbacks added to promise2 get queued behind the promise returned by either <code>successCallback</code> or <code>failureCallback</code>.</p>
+            <p>Basically, each promise represents the completion of another asynchronous step in the chain.</p>
+            <p>In the old days, doing several asynchronous operations in a row would lead to the classic callback pyramid of doom:</p>
+            
+            <pre><code><span class="function">doSomething</span><span class="punctuation">(</span><span class="keyword">function</span><span class="punctuation">(</span><span class="parameter">result</span><span class="punctuation">)</span> <span class="punctuation">{</span><br> <span class="function">doSomethingElse</span><span class="punctuation">(</span>result<span class="punctuation">,</span> <span class="keyword">function</span><span class="punctuation">(</span><span class="parameter">newResult</span><span class="punctuation">)</span> <span class="punctuation">{</span><br>    <span class="function">doThirdThing</span><span class="punctuation">(</span>newResult<span class="punctuation">,</span> <span class="keyword">function</span><span class="punctuation">(</span><span class="parameter">finalResult</span><span class="punctuation">)</span> <span class="punctuation">{</span><br>      console<span class="punctuation">.</span><span class="function">log</span><span class="punctuation">(</span><span class="string">'Got the final result: '</span> <span class="operator">+</span> finalResult<span class="punctuation">)</span><span class="punctuation">;</span><br>    <span class="punctuation">}</span><span class="punctuation">,</span> failureCallback<span class="punctuation">)</span><span class="punctuation">;</span><br> <span class="punctuation">}</span><span class="punctuation">,</span> failureCallback<span class="punctuation">)</span><span class="punctuation">;</span><br><span class="punctuation">}</span><span class="punctuation">,</span> failureCallback<span class="punctuation">)</span><span class="punctuation">;</span></code></pre>
+            
+            <p>With modern functions, we attach our callbacks to the returned promises instead, forming a promise chain:</p>
+            
+            <pre><code><span class="function">doSomething</span><span class="punctuation">(</span><span class="punctuation">)</span><br><span class="punctuation">.</span><span class="function">then</span><span class="punctuation">(</span><span class="keyword">function</span><span class="punctuation">(</span><span class="parameter">result</span><span class="punctuation">)</span> <span class="punctuation">{</span><br>  <span class="keyword">return</span> <span class="function">doSomethingElse</span><span class="punctuation">(</span>result<span class="punctuation">)</span><span class="punctuation">;</span><br><span class="punctuation">}</span><span class="punctuation">)</span><br><span class="punctuation">.</span><span class="function">then</span><span class="punctuation">(</span><span class="keyword">function</span><span class="punctuation">(</span><span class="parameter">newResult</span><span class="punctuation">)</span> <span class="punctuation">{</span><br>  <span class="keyword">return</span> <span class="function">doThirdThing</span><span class="punctuation">(</span>newResult<span class="punctuation">)</span><span class="punctuation">;</span><br><span class="punctuation">}</span><span class="punctuation">)</span><br><span class="punctuation">.</span><span class="function">then</span><span class="punctuation">(</span><span class="keyword">function</span><span class="punctuation">(</span><span class="parameter">finalResult</span><span class="punctuation">)</span> <span class="punctuation">{</span><br>  console<span class="punctuation">.</span><span class="function">log</span><span class="punctuation">(</span><span class="string">'Got the final result: '</span> <span class="operator">+</span> finalResult<span class="punctuation">)</span><span class="punctuation">;</span><br><span class="punctuation">}</span><span class="punctuation">)</span><br><span class="punctuation">.</span><span class="function">catch</span><span class="punctuation">(</span>failureCallback<span class="punctuation">)</span><span class="punctuation">;</span></code></pre>
+            
+            <p>The arguments to <code>then</code> are optional, and <code>catch(failureCallback)</code> is short for <code>then(null, failureCallback)</code>. You might see this expressed with arrow functions instead:</p>
+            
+            <pre><code><span class="function">doSomething</span><span class="punctuation">(</span><span class="punctuation">)</span><br><span class="punctuation">.</span><span class="function">then</span><span class="punctuation">(</span><span class="parameter">result</span> <span class="operator">=></span> <span class="function">doSomethingElse</span><span class="punctuation">(</span>result<span class="punctuation">)</span><span class="punctuation">)</span><br><span class="punctuation">.</span><span class="function">then</span><span class="punctuation">(</span><span class="parameter">newResult</span> <span class="operator">=></span> <span class="function">doThirdThing</span><span class="punctuation">(</span>newResult<span class="punctuation">)</span><span class="punctuation">)</span><br><span class="punctuation">.</span><span class="function">then</span><span class="punctuation">(</span><span class="parameter">finalResult</span> <span class="operator">=></span> <span class="punctuation">{</span><br>  console<span class="punctuation">.</span><span class="function">log</span><span class="punctuation">(</span><span class="string">`Got the final result:</span><span class="punctuation">${</span>finalResult<span class="punctuation">}</span><span class="string">`</span><span class="punctuation">)</span><span class="punctuation">;</span><br><span class="punctuation">}</span><span class="punctuation">)</span><br><span class="punctuation">.</span><span class="function">catch</span><span class="punctuation">(</span>failureCallback<span class="punctuation">)</span><span class="punctuation">;</span></code></pre>
+            
+            <p>Important: Always return results, otherwise callbacks won't catch the result of a previous promise (with arrow functions <code>() => x</code> is short for <code>() => { return x; })</code>.</p>
+        </section>
+
+        <section class="main-section" id="further_informations">
+            <header>Further Informations</header>
+            <p>Don't miss further informations about using promisses:</p>
+            <ul>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#chaining_after_a_catch" target="_blank">Chaining after a catch</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#error_propagation" target="_blank">Error propagation</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#promise_rejection_events" target="_blank">Promise rejection events</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#creating_a_promise_around_an_old_callback_api" target="_blank">Creating a Promise around an old callback API</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#composition" target="_blank">Composition</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#timing" target="_blank">Timing</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#nesting" target="_blank">Nesting</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#common_mistakes" target="_blank">Common mistakes</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#when_promises_and_tasks_collide" target="_blank">When promises and tasks collide</a></li>
+            </ul>
+        </section>
+        
+        <section class="main-section" id="reference">
+            <header>Reference</header>
+            <p>All the documentation in this page is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises" target="_blank">MDN</a></p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
