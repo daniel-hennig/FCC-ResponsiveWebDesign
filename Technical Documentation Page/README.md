@@ -60,7 +60,7 @@ User Story #15: My Technical Documentation page should use at least one media qu
 ### Screenshot
 
 Desktop Version
-
+![Screenshot_2021-05-04 FreeCodeCamp - Technical Documentation Page](https://user-images.githubusercontent.com/78707309/116942448-8520e080-ac69-11eb-85a1-4dc620002bbc.png)
 
 ### Links
 
