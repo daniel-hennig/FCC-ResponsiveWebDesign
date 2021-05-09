@@ -52,7 +52,7 @@ User Story #11: The navbar should always be at the top of the viewport.
 ### Screenshot
 
 Desktop Version
-
+![Screenshot_2021-05-09 FreeCodeCamp - Personal Portfolio Webpage](https://user-images.githubusercontent.com/78707309/117567160-b444b100-b0b2-11eb-9647-b9384e13d55e.png)
 
 ### Links
 
